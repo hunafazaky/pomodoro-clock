@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "25-5-clock",
+      "name": "pomodoro-clock",
       "dependencies": {
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
