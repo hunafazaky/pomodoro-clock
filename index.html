@@ -1,36 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>25-5-clock</title>
   </head>
   <body>
-    <main>
-      <audio id="beep"></audio>
-
-      <section class="action">
-        <div id="break-label">Break Length</div>
-        <div class="num-display" id="break-length">5</div>
-        <button id="break-increment">&#9650;</button>
-        <button id="break-decrement">&#9660;</button>
-      </section>
-      <section class="action">
-        <div id="session-label">Session Length</div>
-        <div class="num-display" id="session-length">25</div>
-        <button id="session-increment">&#9650;</button>
-        <button id="session-decrement">&#9660;</button>
-      </section>
-      <section class="display">
-        <div id="timer-label">Session</div>
-        <div class="num-display" id="time-left">
-          <span id="minutes">25</span>:<span id="seconds">00</span>
-        </div>
-        <button id="start_stop">&#9658;</button>
-        <button id="reset">&#10226;</button>
-      </section>
-      <script src="script.js"></script>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
