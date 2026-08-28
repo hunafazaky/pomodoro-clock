@@ -1,0 +1,12 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #0b192c;
+  color: #f2f2f2;
+  font-family: system-ui, sans-serif;
+}

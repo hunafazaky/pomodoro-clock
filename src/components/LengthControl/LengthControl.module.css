@@ -1,0 +1,34 @@
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.numDisplay {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.stepButton {
+  background: none;
+  border: 1px solid #1e3e62;
+  border-radius: 4px;
+  color: inherit;
+  padding: 0.15rem 0.6rem;
+  cursor: pointer;
+}
+
+.stepButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.stepButton:hover:not(:disabled) {
+  background-color: #1e3e62;
+}

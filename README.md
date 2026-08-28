@@ -1,78 +1,74 @@
-# React + TypeScript + Vite
+# Pomodoro Clock
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Pomodoro-style timer that alternates between a focus session and a break, with
+adjustable lengths and an audio cue on each phase switch.
 
-Currently, two official plugins are available:
+![Screenshot](https://placehold.co/1200x630?text=25+%2B+5+Clock)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** [username.github.io/pomodoro-clock](https://username.github.io/pomodoro-clock)
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Adjustable session (1–60 min) and break (1–60 min) lengths
+- Start/pause and reset controls
+- Automatic switch between Session and Break with an audio cue
+- Length controls lock while the timer is running
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** + **TypeScript 6** — with the React Compiler (babel plugin) enabled
+- **Vite 8** — build tool & dev server
+- **Bun** — package manager, runtime & test runner
+- **CSS Modules** — scoped component styles, no framework
+- **ESLint (flat config) + Prettier** — linting & formatting
+- **Testing:** `bun test` + `@testing-library/react` + `@testing-library/jest-dom` + `happy-dom`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+\`\`\`bash
+bun install
+bun run dev
+\`\`\`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Scripts
 
-```
+| Command           | Description                        |
+|--------------------|---------------------------------------|
+| `bun run dev`      | Start dev server                       |
+| `bun run build`    | Type-check, then production build      |
+| `bun run preview`  | Preview the production build           |
+| `bun test`         | Run tests once                         |
+| `bun run lint`     | Lint + type-check                      |
+| `bun run format`   | Format with Prettier                   |
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+\`\`\`
+src/
+├── components/
+│   ├── LengthControl/
+│   └── TimerDisplay/
+├── hooks/
+│   └── usePomodoroTimer.ts
+├── utils/
+│   └── format-time.ts
+├── types/
+│   └── pomodoro.types.ts
+└── main.tsx
+\`\`\`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Why these dependencies
 
-```
+- `@testing-library/jest-dom` — adds readable DOM matchers (`toBeDisabled`,
+  `toBeInTheDocument`) on top of `bun:test`'s `expect`, which doesn't include them by
+  default.
+- `@happy-dom/global-registrator` — lightweight DOM environment so component tests can
+  run under `bun test` without a real browser.
+- `babel-plugin-react-compiler` / `@rolldown/plugin-babel` — came with the project
+  scaffold; enables the React Compiler for automatic memoization.
+
+## License
+
+MIT
