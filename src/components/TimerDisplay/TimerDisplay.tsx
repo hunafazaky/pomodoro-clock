@@ -5,39 +5,20 @@ export type TimerDisplayProps = {
   minutes: string;
   seconds: string;
   isRunning: boolean;
-  onToggle: () => void;
-  onReset: () => void;
 };
 
-export function TimerDisplay(props: TimerDisplayProps) {
-  const { phase, minutes, seconds, isRunning, onToggle, onReset } = props;
-
+export function TimerDisplay({ phase, minutes, seconds, isRunning }: TimerDisplayProps) {
   return (
-    <section className={styles.display}>
-      <div id="timer-label" className={styles.label}>
+    <div className={styles.wrapper} data-running={isRunning}>
+      <div className={styles.glow} aria-hidden="true" />
+      <p id="timer-label" className={styles.label}>
         {phase}
-      </div>
-      <div id="time-left" className={styles.numDisplay}>
-        <span id="minutes">{minutes}</span>:<span id="seconds">{seconds}</span>
-      </div>
-      <button
-        id="start_stop"
-        type="button"
-        className={styles.controlButton}
-        onClick={onToggle}
-        aria-label={isRunning ? "Pause timer" : "Start timer"}
-      >
-        {isRunning ? "\u23F8" : "\u25B6"}
-      </button>
-      <button
-        id="reset"
-        type="button"
-        className={styles.controlButton}
-        onClick={onReset}
-        aria-label="Reset timer"
-      >
-        &#10226;
-      </button>
-    </section>
+      </p>
+      <p id="time-left" className={styles.time}>
+        <span id="minutes">{minutes}</span>
+        <span className={styles.colon}>:</span>
+        <span id="seconds">{seconds}</span>
+      </p>
+    </div>
   );
 }

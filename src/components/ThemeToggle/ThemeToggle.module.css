@@ -1,0 +1,40 @@
+.toggle {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-elevated);
+  color: var(--fg);
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s ease,
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.toggle:hover {
+  transform: scale(1.06);
+}
+
+.toggle:active {
+  transform: scale(0.94);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

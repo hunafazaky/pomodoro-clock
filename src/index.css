@@ -2,6 +2,27 @@
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: dark light;
+}
+
 body {
   margin: 0;
+  font-family: var(--font-text);
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

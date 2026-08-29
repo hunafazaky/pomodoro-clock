@@ -1,0 +1,56 @@
+.controls {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0 1.25rem max(1.5rem, env(safe-area-inset-bottom));
+}
+
+.resetButton,
+.primaryButton {
+  flex: 1;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.3s ease, box-shadow 0.4s ease,
+    border-color 0.3s ease, color 0.3s ease;
+}
+
+.resetButton {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg-dim);
+}
+
+.resetButton:hover {
+  border-color: var(--accent-danger);
+  color: var(--accent-danger);
+}
+
+.primaryButton {
+  border: none;
+  background-color: var(--accent, var(--accent-session));
+  color: var(--bg);
+  font-weight: 600;
+  box-shadow: 0 8px 24px -8px var(--accent, var(--accent-session));
+}
+
+.resetButton:active,
+.primaryButton:active {
+  transform: scale(0.97);
+}
+
+.resetButton:focus-visible,
+.primaryButton:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .controls {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

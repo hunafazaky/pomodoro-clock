@@ -1,4 +1,4 @@
-# Pomodoro Clock
+# 25 + 5 Clock
 
 A Pomodoro-style timer that alternates between a focus session and a break, with
 adjustable lengths and an audio cue on each phase switch.
@@ -13,6 +13,10 @@ adjustable lengths and an audio cue on each phase switch.
 - Start/pause and reset controls
 - Automatic switch between Session and Break with an audio cue
 - Length controls lock while the timer is running
+- Tokyo Night theme with a dark/light toggle (floating button, top-right, follows
+  system preference on first load and remembers your choice)
+- Screen accent color shifts between session and break tones
+- Mobile-first layout: controls anchored to the bottom, safe-area aware
 
 ## Tech Stack
 
@@ -20,6 +24,7 @@ adjustable lengths and an audio cue on each phase switch.
 - **Vite 8** — build tool & dev server
 - **Bun** — package manager, runtime & test runner
 - **CSS Modules** — scoped component styles, no framework
+- **Fonts:** Iceland (digits) + Fjord One (text), via Google Fonts — no extra package
 - **ESLint (flat config) + Prettier** — linting & formatting
 - **Testing:** `bun test` + `@testing-library/react` + `@testing-library/jest-dom` + `happy-dom`
 
@@ -48,14 +53,18 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 \`\`\`
 src/
 ├── components/
+│   ├── Controls/
 │   ├── LengthControl/
+│   ├── ThemeToggle/
 │   └── TimerDisplay/
 ├── hooks/
-│   └── usePomodoroTimer.ts
+│   ├── usePomodoroTimer.ts
+│   └── useTheme.ts
 ├── utils/
 │   └── format-time.ts
 ├── types/
 │   └── pomodoro.types.ts
+├── theme.css
 └── main.tsx
 \`\`\`
 
